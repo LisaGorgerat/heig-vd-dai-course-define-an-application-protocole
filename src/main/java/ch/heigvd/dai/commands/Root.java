@@ -9,7 +9,7 @@ import picocli.CommandLine;
         mixinStandardHelpOptions = true)
 public class Root {
     public enum AvailableInputSort {
-        AlPHABETICAL,
+        ALPHABETICAL,
         REVERSE_ALPHABETICAL,
         USAGE,
         APPARITION
