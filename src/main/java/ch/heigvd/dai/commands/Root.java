@@ -5,6 +5,9 @@ import picocli.CommandLine;
 @CommandLine.Command(
         description = "CLI for dictionary creation from a text.",
         version = "1.0.0",
+        subcommands = {
+                Sort.class,
+        },
         scope = CommandLine.ScopeType.INHERIT,
         mixinStandardHelpOptions = true)
 public class Root {
@@ -20,7 +23,7 @@ public class Root {
 
     @CommandLine.Option(
             names = {"-s", "--sort"},
-            description = "The sort function for the dictionary.",
+            description = "The sort function to use (possible values ${COMPLETION-CANDIDATES}).",
             required = true)
     protected AvailableInputSort sort;
 

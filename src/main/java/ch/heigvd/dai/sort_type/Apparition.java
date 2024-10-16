@@ -1,4 +1,11 @@
 package ch.heigvd.dai.sort_type;
 
-public class Apparition {
+import ch.heigvd.dai.sort_type.Sortable;
+
+public class Apparition implements Sortable {
+    @Override
+    public void sort(String filename){
+
+
+    }
 }
