@@ -1,9 +1,5 @@
 package ch.heigvd.dai.commands;
 
-import ch.heigvd.dai.ios.Readable;
-import ch.heigvd.dai.ios.File_reader;
-import ch.heigvd.dai.ios.Writable;
-import ch.heigvd.dai.ios.File_writer;
 import ch.heigvd.dai.sort_type.*;
 
 import java.util.concurrent.Callable;
