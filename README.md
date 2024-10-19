@@ -12,7 +12,6 @@ Lisa Gorgerat et Alex Berberat
       - [Cloning our repository](#how-to-clone-our-repository)
       - [Build our application](#how-to-build-our-application)
     - [Demo](#demo)
-    - [How it works](#how-it-works)
 
 ## Introduction
 In this practical work, we needed to create a CLI using picocli to process files in any way we wanted, as well as git and github to manage our code, maven to build our application and using java as programming language and to run our application.
@@ -51,32 +50,13 @@ We have given a file (`les_miserables.txt`) on which you can test our applicatio
 By running the desired command, in this case sorting by apparition of the words in the text, we get this:<br>
 ![outout](images/out.png)
 
-This genrate a mardkdown file that can be found at the root of your folder.
+This generates a mardkdown file that can be found at the root of your folder.
 By opening it in a coding program, you will have this output:<br>
 ![Result in markdown](images/res_md.png)
 
 If you open it in a space where you can visualize markdown, you will have this output:<br>
 ![Result of markdown visualized](images/res_visuel.png)
 
-### How it works
-
-#### Main
-
-#### Root
-
-#### Sort
-
-#### FileReader
-
-#### FileWriter
-
-#### Alphabetical
-
-#### Apparition
-
-#### Reverse-alphabetical
-
-#### Usage
 
 
 
