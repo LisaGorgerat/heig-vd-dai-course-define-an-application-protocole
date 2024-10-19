@@ -16,8 +16,9 @@ public class File_reader {
             while ((br.ready())) {
                 String line = br.readLine();
 
-                line = line.replaceAll("\\p{Punct}|\\d", " ");
-                line = line.replaceAll("–|’|«|»", " "); // Needed because of non-standard char
+
+                line = line.replaceAll("\\p{Punct}|\\p{IsPunctuation}|\\d", " ");
+
 
                 line = line.trim().replaceAll(" +", " ");
 
