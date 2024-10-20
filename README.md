@@ -45,7 +45,7 @@ Use Intellij IDEA because the whole project was built using it.
 2. Open the terminal in the folder where you want to clone the repository.
 3. Clone the repo.
     ```sh 
-    git clone git@github.com:AlexB-HEIG/DAI-Practical-work-1.git
+    git clone https://github.com/AlexB-HEIG/DAI-Practical-work-1.git
     ```
 4. Change git remote url to avoid accidental pushes to base project.
     ```sh
