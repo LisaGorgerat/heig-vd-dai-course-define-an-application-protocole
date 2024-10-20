@@ -6,11 +6,17 @@ import java.util.concurrent.Callable;
 
 import picocli.CommandLine;
 
+/**
+ * Class and implementation of the subcommand sort
+ */
 @CommandLine.Command(name = "sort", description = "Count and sort words from a file.")
 public class Sort implements Callable<Integer> {
     @CommandLine.ParentCommand
     protected Root parent;
 
+    /**
+     * Function to determine which sort to initiate depending on the command
+     */
     @Override
     public Integer call() {
         Sortable sorter =

@@ -2,9 +2,11 @@ package ch.heigvd.dai;
 
 import ch.heigvd.dai.commands.Root;
 import picocli.CommandLine;
-
 import java.io.File;
 
+/**
+ * main of the application to initialize a command line and calculate execution time
+ */
 public class Main {
     public static void main(String[] args) {
 
@@ -16,7 +18,7 @@ public class Main {
         // Create root command
         Root root = new Root();
 
-        // Get user input
+        // Get user input and execution time
         Long start = System.nanoTime();
         int exitCode =
                 new CommandLine(root)

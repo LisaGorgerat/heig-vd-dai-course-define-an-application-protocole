@@ -8,6 +8,9 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+/**
+ * Implementation of the sort by number of usage in the text
+ */
 public class Usage implements Sortable {
     @Override
     public void sort(String filename) {

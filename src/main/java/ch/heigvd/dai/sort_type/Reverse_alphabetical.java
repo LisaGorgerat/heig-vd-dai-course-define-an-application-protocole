@@ -7,6 +7,9 @@ import java.util.Comparator;
 import java.util.Map;
 import java.util.TreeMap;
 
+/**
+ * Implementation of the reverse alphabetical sort by reversing the order of a TreeMap (alphabetical sort)
+ */
 public class Reverse_alphabetical implements Sortable {
     @Override
     public void sort(String filename) {

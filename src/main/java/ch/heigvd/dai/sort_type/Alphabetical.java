@@ -6,6 +6,9 @@ import ch.heigvd.dai.sort_type.ios.*;
 import java.util.Map;
 import java.util.TreeMap;
 
+/**
+ * Implementation of the alphabetical sort by putting it into a TreeMap(sort automatically into alphabetical sort)
+ */
 public class Alphabetical implements Sortable {
     @Override
     public void sort(String filename) {
