@@ -27,7 +27,7 @@ public class File_writer {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(filename + ".dictionary.md", StandardCharsets.UTF_8))) {
 
             // Writes the description of the dictionary.
-            bw.write("# Dictionary of " + filename + "\n");
+            bw.write("# Dictionary of " + new File(filename).getName() + "\n");
             bw.write("# Used sort : " + used_sort + "\n");
 
             // Writes the name of the columns for the array.
@@ -42,7 +42,7 @@ public class File_writer {
 
             // Flush to empty the buffer.
             bw.flush();
-            
+
         } catch (IOException e) {
             System.err.println("Error: " + e.getMessage());
         }
