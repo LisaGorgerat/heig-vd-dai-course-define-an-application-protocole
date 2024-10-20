@@ -9,7 +9,11 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
- * Implementation of the sort by number of usage in the text
+ * This class implements the usage sort which sorts based on the number
+ * of time a word is used.
+ *
+ * @author Alex Berberat
+ * @author Lisa Gorgerat
  */
 public class Usage implements Sortable {
     @Override

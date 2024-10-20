@@ -6,35 +6,53 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 
 /**
- * Class to read the inputed file and make it into a Map(dictionary)
+ * This class uses a static method to reads the input file and convert it into a map(dictionary).
+ * This implementation reads the file using a buffered reader around a file reader.
+ * The reading process is secured with a try-with-resources.
+ *
+ * @author Alex Berberat
+ * @author Lisa Gorgerat
  */
 public class File_reader {
+
+    /**
+     * Words extractor extracts each word from the file and put them in a map while counting
+     * how many times they appear.
+     *
+     * @param filename the name of the file to convert.
+     * @return the map containing every word.
+     */
     public static Map<String, Integer> words_extractor(String filename) {
 
-        //Map<String, Integer> words_list = new HashMap<>();
         Map<String, Integer> words_list = new LinkedHashMap<>();
 
-        //try-with-resources to catch errors with the input file
         try (BufferedReader br = new BufferedReader(new FileReader(filename, StandardCharsets.UTF_8))) {
 
             while ((br.ready())) {
                 String line = br.readLine();
 
-                //Remove all punctuation in the text
+                /*
+                 * Remove all punctuation and number in the text.
+                 * \p{Punct} is a POSIX pattern.
+                 * \p{IsPunctuation} is a UNICODE pattern.
+                 * Both are needed because de UNICODE pattern doesn't match all the characters
+                 * matched by the POSIX pattern.
+                 * \d is for the numbers.
+                 */
                 line = line.replaceAll("\\p{Punct}|\\p{IsPunctuation}|\\d", " ");
 
-                //Replace remaining symbols by space
+                // Replace consecutive space by a unique space.
                 line = line.trim().replaceAll(" +", " ");
 
-                //Skip the spaces
+                // Continue to next iteration if the string contains no characters.
                 if (line.isBlank()) {
                     continue;
                 }
 
-                //Convert all lettres to lower case, as we are making a case-insensitive dictionary
+                // Convert all lettres to lower case, as we are making a case-insensitive dictionary.
                 line = line.toLowerCase();
 
-                //Insert the now defined word into the Map
+                // Extract each word and insert them in the Map while increasing the counter if necessary.
                 for (String word : line.split(" ")) {
                     if (words_list.containsKey(word)) {
                         words_list.put(word, words_list.get(word) + 1);
@@ -43,7 +61,7 @@ public class File_reader {
                     }
                 }
             }
-            
+
         } catch (java.io.IOException e) {
             System.err.println("Error: " + e.getMessage());
         }

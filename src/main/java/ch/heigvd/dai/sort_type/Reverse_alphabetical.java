@@ -8,7 +8,12 @@ import java.util.Map;
 import java.util.TreeMap;
 
 /**
- * Implementation of the reverse alphabetical sort by reversing the order of a TreeMap (alphabetical sort)
+ * This class implements the reverse alphabetical sort by converting
+ * the Map into a reversed TreeMap.
+ * The TreeMap sorts automatically during the creation process.
+ *
+ * @author Alex Berberat
+ * @author Lisa Gorgerat
  */
 public class Reverse_alphabetical implements Sortable {
     @Override
