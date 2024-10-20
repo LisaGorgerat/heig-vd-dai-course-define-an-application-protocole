@@ -7,11 +7,15 @@
 ## Table of content
 
 - [Introduction](#introduction)
-- [Application](#application)
-    - [How to setup](#how-to-setup)
-      - [Cloning our repository](#how-to-clone-our-repository)
-      - [Build our application](#how-to-build-our-application)
-    - [Demo](#demo)
+- [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Recommendation](#recommendation)
+    - [Setup](#setup)
+      - [Clone the repository](#clone-the-repository)
+      - [Build the application](#build-the-application)
+- [Usage](#usage)
+  - [Run the application](#run-the-application)
+- [Demonstration](#demonstration)
 
 ## Introduction
 This practical work running in java 21 is a picocli based CLI that take a text file in UTF8 format as an input and generate a dictionary file containing each word and the number of times they appear in the file.  
@@ -64,7 +68,7 @@ Or you can use _Package application as JAR file_ configuration file to build eas
 ## Usage
 Once the app is built you can run it.
 
-#### Run the application
+### Run the application
 To run the application in Intellij, we have created configuration files with every type of sort available and they all use the given example text file of the project in order to be able to run the app easily.  
 ![build configs](images/builds.png)
 
