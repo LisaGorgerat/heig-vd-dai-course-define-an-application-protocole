@@ -1,62 +1,130 @@
 # Practical work 1
 
-Lisa Gorgerat et Alex Berberat
-
-![Title card](/images/title_card.jpg)
+## Author
+- Lisa Gorgerat
+- Alex Berberat
 
 ## Table of content
 
 - [Introduction](#introduction)
-- [Application](#application)
-    - [How to setup](#how-to-setup)
-      - [Cloning our repository](#how-to-clone-our-repository)
-      - [Build our application](#how-to-build-our-application)
-    - [Demo](#demo)
+- [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Recommendation](#recommendation)
+    - [Setup](#setup)
+      - [Clone the repository](#clone-the-repository)
+      - [Build the application](#build-the-application)
+- [Usage](#usage)
+  - [Run the application](#run-the-application)
+- [Demonstration](#demonstration)
 
 ## Introduction
-In this practical work, we needed to create a CLI using picocli to process files in any way we wanted, as well as git and github to manage our code, maven to build our application and using java as programming language and to run our application.
+This practical work running in java 21 is a picocli based CLI that take a text file in UTF8 format as an input and generate a dictionary file containing each word and the number of times they appear in the file.  
 
-We have chosen to write an application that take a text file containing a text in UTF8 format that print every word(only one time, if the word is there multiple times) and allow the user to sort this dictionary in alphabetical order, reverse alphabetical order, by order of apparition or by number of appearance.
+The generated dictionary is sorted in one of the four orders possible depending on the user input command.
+- Apparition order  
+  (Sort the words in the order they appear throughout the text file.)
+- Alphabetical order
+- Reverse alphabetical order
+- Usage order  
+  (Sort the words from the most used to the least used.)
+ 
+We don't consider two words distinct if the only thing that change is the case of certain letters. Numbers aren't considered words, if they are in digit form.  
 
-We don't consider two words distinct if the only thing that change are the case of certain letters. Numbers aren't considered words, if they are in digit form. 
+## Getting Started
+### Prerequisites
+- JDK
+- Maven (optional, a maven wrapper comes with the project)
 
-## Application
-### How to setup
-#### How to clone our repository
-To set up our application, you first need to go to our repository on github: [Our repo](https://github.com/AlexB-HEIG/DAI-Practical-work-1).
+### Recommendation
+Use Intellij IDEA because the whole project was built using it.
 
-Then you need to clone our repository:
-1. Go to the folder where you want our repository to be.
-2. Open a terminal there
-3. use the command git clone with the ssh<br>
-`git clone git@github.com:AlexB-HEIG/DAI-Practical-work-1.git`
+### Setup
+#### Clone the repository
 
-#### How to build our application
-To build our application, you need to use the following command on your terminal:<br>
-`java -jar target/DAI-Practical-work-1-1.0-SNAPSHOT.jar <your file> <sort type> sort`<br>
-ou<br>
-`java -jar target/DAI-Practical-work-1-1.0-SNAPSHOT.jar <sort type> <your file> sort`
+1. Go to the [repository](https://github.com/AlexB-HEIG/DAI-Practical-work-1) on github and choose your favorite clone option.
+2. Open the terminal in the folder where you want to clone the repository.
+3. Clone the repo.
+    ```sh 
+    git clone https://github.com/AlexB-HEIG/DAI-Practical-work-1.git
+    ```
+4. Change git remote url to avoid accidental pushes to base project.
+    ```sh
+    git remote set-url origin <github_username/repo_name>
+    git remote -v
+    ```
 
-If you aren't sure, simply running `java -jar target/DAI-Practical-work-1-1.0-SNAPSHOT.jar` will make the following CLI appear:<br>
-![CLI](images/cli.png)
+#### Build the application
+To build the application, you can use the following commands in your terminal.
+```sh
+# Download the dependencies and their transitive dependencies
+./mvnw dependency:go-offline
 
-However, if you are a developer, and you have made some modifications, you need to repackage the application.
-For that, we have made a maven configuration to package the application: <br>
+# Package the application
+./mvnw package
+```
+Or you can use _Package application as JAR file_ configuration file to build easily in Intellij IDEA.  
 ![maven config](images/package.png)
 
-### Demo
-We have given a file (`les_miserables.txt`) on which you can test our application.
+## Usage
+Once the app is built you can run it.
 
-By running the desired command, in this case sorting by apparition of the words in the text, we get this:<br>
-![outout](images/out.png)
+### Run the application
+To run the application in Intellij, we have created configuration files with every type of sort available and they all use the given example text file of the project in order to be able to run the app easily.  
+![build configs](images/builds.png)
 
-This generates a mardkdown file that can be found at the root of your folder.
-By opening it in a coding program, you will have this output:<br>
-![Result in markdown](images/res_md.png)
+You can also run the app directly from the terminal while being in the project root with one of the commands below :  
+```sh
+java -jar target/DAI-Practical-work-1-1.0-SNAPSHOT.jar <your file> -s <sort type> sort
+# OR
+java -jar target/DAI-Practical-work-1-1.0-SNAPSHOT.jar -s <sort type> <your file> sort
+```
 
-If you open it in a space where you can visualize markdown, you will have this output:<br>
-![Result of markdown visualized](images/res_visuel.png)
+If you aren't sure, simply run the command :  
+```sh
+java -jar target/DAI-Practical-work-1-1.0-SNAPSHOT.jar
+```
+This will make the following CLI appear :
+```sh
+Usage: DAI-Practical-work-1-1.0-SNAPSHOT.jar [-hV] -s=<sort> <filename>
+       [COMMAND]
+CLI for dictionary creation from a text.
+      <filename>      The name of the file.
+  -h, --help          Show this help message and exit.
+  -s, --sort=<sort>   The sort function to use (possible values ALPHABETICAL,
+                        REVERSE_ALPHABETICAL, USAGE, APPARITION).
+  -V, --version       Print version information and exit.
+Commands:
+  sort  Count and sort words from a file.
+```
 
 
+> [!IMPORTANT]
+> 
+> Remember to repackage the app after you have made modifications.
 
 
+## Demonstration 
+We have given a text file `les_miserables.txt` that you can find in the `example_files` folder on which you can test our application.  
+
+After creating the app package as seen earlier. We run the desired command, for this demo we'll be using the sort by apparition option.  
+The command : 
+```sh
+java -jar target/DAI-Practical-work-1-1.0-SNAPSHOT.jar -s APPARITION example_files/les_miserables.txt sort
+```
+We get this output in the terminal :
+```sh
+Sorting example_files/les_miserables.txt using APPARITION
+Execution time in ms: 518
+```
+
+This generates a Mardkdown file named `<your file>.dictionary.md` that can be found at the same place as the text file you gave the app.  
+For this demo the generated file is named `les_miserables.txt.dictionary.md` and can be found in the `example_files` folder.  
+
+
+|By opening the file in any program that can read a basic text file, you will see this output:|If you open it in a program where you can visualize Markdown correctly, you will have this output:|
+|---|---|
+| ![Result in markdown](images/res_md.png) | ![Result of markdown visualized](images/res_visuel.png) |
+
+> [!NOTE]
+> 
+> Both pictures have been cropped to take less place and therefore don't represent the whole dictionary.

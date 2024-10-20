@@ -6,11 +6,21 @@ import java.util.concurrent.Callable;
 
 import picocli.CommandLine;
 
+/**
+ * This class defines the sort command of the CLI.
+ * It implements the subcommand sort.
+ *
+ * @author Alex Berberat
+ * @author Lisa Gorgerat
+ */
 @CommandLine.Command(name = "sort", description = "Count and sort words from a file.")
 public class Sort implements Callable<Integer> {
     @CommandLine.ParentCommand
     protected Root parent;
 
+    /**
+     * Function to determine which sort to initiate depending on the command
+     */
     @Override
     public Integer call() {
         Sortable sorter =
