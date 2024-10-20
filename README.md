@@ -37,6 +37,9 @@ To build our application, you need to use the following command on your terminal
 ou<br>
 `java -jar target/DAI-Practical-work-1-1.0-SNAPSHOT.jar <sort type> <your file> sort`
 
+To build our application in your IDE, we have created build configurations with our text file and every type of sort:<br>
+![build configs](images/builds.png)s
+
 If you aren't sure, simply running `java -jar target/DAI-Practical-work-1-1.0-SNAPSHOT.jar` will make the following CLI appear:<br>
 ![CLI](images/cli.png)
 
